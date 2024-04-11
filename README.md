@@ -17,7 +17,7 @@ there's no specific client for the host, then it will fallback to using the
 
 Implemented:
 
-- Github Container Registry (`ghcr.io`)
+- GitHub Container Registry (`ghcr.io`)
 - Docker Hub (`docker.io`, `*.docker.io`)
 - Google Container Registry (`gcr.io`, `*.gcr.io`, `*.k8s.io`)
 - Google Artifact Registry (`*.pkg.dev`)
@@ -25,13 +25,27 @@ Implemented:
 
 TODO:
 
-- Azure Container Registry
-- AWS ECR
-- Harbor
-- Quay
-- Artifactory?
-- Sonatype Nexus?
+- [ ] Azure Container Registry
+- [ ] AWS ECR
+- [ ] Harbor
+- [ ] Quay
+- [ ] Artifactory?
+- [ ] Sonatype Nexus?
 - ???
+
+## Install
+
+Checkout this repo and build the project locally:
+
+```shell
+go build .
+```
+
+Either put the resulting `seaglass` binary in your PATH, or run it directly:
+
+```shell
+./seaglass --help
+```
 
 ## Usage
 
@@ -39,14 +53,14 @@ TODO:
 
 List the repositories directly under a given path:
 
-```
+```shell
 $ seaglass repos gcr.io/your-project
 gcr.io/your-project/one
 gcr.io/your-project/two
 gcr.io/your-project/three
 ```
 
-```
+```shell
 $ seaglass repos gcr.io/your-project/one
 gcr.io/your-project/one/a
 gcr.io/your-project/one/b
@@ -54,7 +68,7 @@ gcr.io/your-project/one/b
 
 You can use the `--recursive` flag to list all the repositories under the path:
 
-```
+```shell
 $ seaglass repos gcr.io/your-project
 gcr.io/your-project/one
 gcr.io/your-project/one/a
@@ -69,7 +83,7 @@ gcr.io/your-project/three/z
 Note, Seaglass requires that the registry host is provided in the reference, even for
 Docker Hub images:
 
-```
+```shell
 $ seaglass repos index.docker.io/jetstack
 index.docker.io/jetstack/bio-docker-watcher
 index.docker.io/jetstack/cloud-billing-exporter
@@ -109,7 +123,7 @@ index.docker.io/jetstack/vault
 
 List all the manifests in a repository.
 
-```
+```shell
 $ seaglass manifests ghcr.io/jetstack/tally
 ghcr.io/jetstack/tally@sha256:87f4f96fc7493d7e77c628583e0cf776a90bf95fd83168e9c0e8fd6db5624656
 ghcr.io/jetstack/tally@sha256:ca977a9d59454e78aae934097a482981398b696bb5d48de9992dd269bd2d6af1
@@ -124,7 +138,7 @@ ghcr.io/jetstack/tally@sha256:a554d8a23a3a3e7fb497a1d1a2376f40b28c69f0d83aafa24c
 
 List all the manifests in a repository, recursively.
 
-```
+```shell
 $ seaglass manifests ghcr.io/jetstack --recursive
 ghcr.io/jetstack/platform/deploy-helper@sha256:ccf60b7a872b5e71c8bc0ccd9bacabf79bf6d0730fc2e65061016a14bb3fabe9
 ghcr.io/jetstack/platform/deploy-helper@sha256:e8de17335c009f085fb39bbb2c20406a9c8d645c1268c679868f379f78a0c1f3
