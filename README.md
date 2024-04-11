@@ -69,7 +69,7 @@ gcr.io/your-project/one/b
 You can use the `--recursive` flag to list all the repositories under the path:
 
 ```shell
-$ seaglass repos gcr.io/your-project
+$ seaglass repos gcr.io/your-project --recursive
 gcr.io/your-project/one
 gcr.io/your-project/one/a
 gcr.io/your-project/one/b
