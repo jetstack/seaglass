@@ -10,6 +10,12 @@
 *.so
 *.dylib
 
+# Exclude build tools installed by the Makefile
+bin/**
+
+# Exclude mocks
+**/mocks/*
+
 # Test binary, built with `go test -c`
 *.test
 

@@ -11,23 +11,25 @@ and artifacts more efficient and useful than with the standard v2 registry API.
 
 ## Clients
 
-Seaglass will select the most appropriate client based on registry hostname. If
-there's no specific client for the host, then it will fallback to using the
+Seaglass will select the most appropriate client based on the registry hostname
+and/or other heuristics.
+
+If there's no specific client for the host, then it will fallback to using the
 `/v2` API directly.
 
-Implemented:
+### Implemented
 
 - GitHub Container Registry (`ghcr.io`)
 - Docker Hub (`docker.io`, `*.docker.io`)
 - Google Container Registry (`gcr.io`, `*.gcr.io`, `*.k8s.io`)
 - Google Artifact Registry (`*.pkg.dev`)
+- [Harbor](internal/v1/clients/harbor) (`*`)
 - Registry v2 API (`*`)
 
-TODO:
+### TODO
 
 - [ ] Azure Container Registry
 - [ ] AWS ECR
-- [ ] Harbor
 - [ ] Quay
 - [ ] Artifactory?
 - [ ] Sonatype Nexus?
@@ -38,7 +40,7 @@ TODO:
 Checkout this repo and build the project locally:
 
 ```shell
-go build .
+make
 ```
 
 Either put the resulting `seaglass` binary in your PATH, or run it directly:

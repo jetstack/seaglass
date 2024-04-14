@@ -9,6 +9,7 @@ import (
 	"github.com/jetstack/seaglass/internal/v1/clients/dockerhub"
 	"github.com/jetstack/seaglass/internal/v1/clients/github"
 	"github.com/jetstack/seaglass/internal/v1/clients/google"
+	"github.com/jetstack/seaglass/internal/v1/clients/harbor"
 	"github.com/jetstack/seaglass/internal/v1/clients/registry"
 )
 
@@ -16,6 +17,7 @@ var clientFactories = []v1.ClientFactory{
 	google.NewClient,
 	github.NewClient,
 	dockerhub.NewClient,
+	harbor.NewClient,
 }
 
 // NewClient returns a client for the provided host
