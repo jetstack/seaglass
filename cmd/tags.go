@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"os"
-	"strings"
 
 	v1 "github.com/jetstack/seaglass/internal/v1"
 	"github.com/jetstack/seaglass/internal/v1/clients/seaglass"
@@ -22,12 +21,10 @@ var tagsCmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ctx := context.Background()
 
-		parts := strings.SplitN(args[0], "/", 2)
-		if len(parts) != 2 {
-			return fmt.Errorf("parsing reference; must be strictly of the form '<host>/<repository>'")
+		registry, repo, err := parseRepo(args[0])
+		if err != nil {
+			return fmt.Errorf("parsing repository reference: %w", err)
 		}
-		registry := parts[0]
-		repo := parts[1]
 
 		c, err := seaglass.NewClient(registry)
 		if err != nil {
