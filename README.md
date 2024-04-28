@@ -49,7 +49,7 @@ Either put the resulting `seaglass` binary in your PATH, or run it directly:
 
 ## Usage
 
-### List repositories
+### List Repositories
 
 List the repositories directly under a given path:
 
@@ -171,4 +171,32 @@ ghcr.io/jetstack/dependency-track-exporter@sha256:a56b6ba879fe75e9a0ed23f062eda5
 ghcr.io/jetstack/dependency-track-exporter@sha256:e35879a321960ce607596a00eff1224b51e2ce142bdb0c127188db60ec1cca0e
 ghcr.io/jetstack/dependency-track-exporter@sha256:944c5710c87e4d83a914e8fd7d69a171c0282402003b82aad18b642c4e2bbcdd
 ghcr.io/jetstack/zenko-cloudserver-nonroot@sha256:2b373ed44f6b9c02d297f701d8079f8315507ef02e42f37ca3fc51fbea90c1be
+```
+
+### List Tags
+
+List all the tags in a repository.
+
+```
+$ seaglass tags ghcr.io/jetstack/tally
+ghcr.io/jetstack/tally:sha256-f4e58f42d5f6d724fd059fcac82b3266d149c909c24f822a936ff364547fba53.sig
+ghcr.io/jetstack/tally:sha256-b2a73a4fd2a96e860c2595483bcae12dc8d52ae7703eb46bd028a0ddd30066a8.sig
+ghcr.io/jetstack/tally:sha256-b794a2e25d51e5771c80da7a78e8ef5fb9e08f04aec2a7a98497dd25e05858fd.sig
+ghcr.io/jetstack/tally:sha256-66cfb69847a7acd2823022504a23eb3ae3181fe44d4cb07aeb4f0f9c46095a94.sig
+ghcr.io/jetstack/tally:v0.0.1
+ghcr.io/jetstack/tally:latest
+```
+
+List all the tags in a repository, recursively.
+
+```
+$ seaglass tags ghcr.io/jetstack/tally --recursive
+ghcr.io/jetstack/tally:sha256-f4e58f42d5f6d724fd059fcac82b3266d149c909c24f822a936ff364547fba53.sig
+ghcr.io/jetstack/tally:sha256-b2a73a4fd2a96e860c2595483bcae12dc8d52ae7703eb46bd028a0ddd30066a8.sig
+ghcr.io/jetstack/tally:sha256-b794a2e25d51e5771c80da7a78e8ef5fb9e08f04aec2a7a98497dd25e05858fd.sig
+ghcr.io/jetstack/tally:sha256-66cfb69847a7acd2823022504a23eb3ae3181fe44d4cb07aeb4f0f9c46095a94.sig
+ghcr.io/jetstack/tally:v0.0.1
+ghcr.io/jetstack/tally:latest
+ghcr.io/jetstack/tally/db:v1
+ghcr.io/jetstack/tally/db:latest
 ```
